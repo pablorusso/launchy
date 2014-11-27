@@ -114,7 +114,6 @@ private:
 	void closeEvent(QCloseEvent* event);
 	void hideLaunchy(bool noFade = false);
 	void updateVersion(int oldVersion);
-	void shouldDonate();
 	void updateAlternatives(bool resetSelection = true);
 	void showAlternatives();
 	void hideAlternatives();
