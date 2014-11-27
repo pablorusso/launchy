@@ -210,7 +210,7 @@ LaunchyWidget::LaunchyWidget(CommandFlags command) :
 	applySkin(gSettings->value("GenOps/skin", "Default").toString());
 
 	// Move to saved position
-	loadPosition(gSettings->value("Display/pos", QPoint(0,0)).toPoint());
+	loadPosition(this, gSettings->value("Display/pos", QPoint(0,0)).toPoint());
 	loadOptions();
 
 	executeStartupCommand(command);
@@ -1088,12 +1088,24 @@ void LaunchyWidget::updateVersion(int oldVersion)
 }
 
 
-void LaunchyWidget::loadPosition(QPoint pt)
+void LaunchyWidget::loadPosition(QWidget* widget, QPoint pt)
 {
+	QRect rect = widget->geometry();
+	QPoint newCenter;
+
+	bool openInLastPosition = gSettings->value("GenOps/openinlastposition", false).toBool();
+	if (!openInLastPosition)
+	{
+		newCenter = QCursor::pos();
+	}
+	else
+	{
+		newCenter = pt + QPoint(rect.width()/2, rect.height()/2);
+	}
+
 	// Get the dimensions of the screen containing the new center point
-	QRect rect = geometry();
-	QPoint newCenter = pt + QPoint(rect.width()/2, rect.height()/2);
-	QRect screen = qApp->desktop()->availableGeometry(newCenter);
+	int screenNumber = qApp->desktop()->screenNumber(newCenter);
+	QRect screen = qApp->desktop()->availableGeometry(screenNumber);
 
 	// See if the new position is within the screen dimensions, if not pull it inside
 	if (newCenter.x() < screen.left())
@@ -1107,11 +1119,11 @@ void LaunchyWidget::loadPosition(QPoint pt)
 
 	int centerOption = gSettings->value("GenOps/alwayscenter", 3).toInt();
 	if (centerOption & 1)
-		pt.setX(screen.center().x() - rect.width()/2);
+		pt.setX(screen.x() + screen.width()/2 - rect.width()/2);
 	if (centerOption & 2)
-		pt.setY(screen.center().y() - rect.height()/2);
+		pt.setY(screen.y() + screen.height()/2 - rect.height()/2);
 
-	move(pt);
+	widget->move(pt);
 }
 
 
@@ -1479,6 +1491,7 @@ void LaunchyWidget::showOptionsDialog()
 		// being activated via a message from another instance of Launchy
 		SetForegroundWindowEx(options.winId());
 #endif
+		loadPosition(&options, pos());
 		options.exec();
 
 		input->activateWindow();
@@ -1533,9 +1546,9 @@ void LaunchyWidget::showLaunchy(bool noFade)
 	shouldDonate();
 	hideAlternatives();
 
-	loadPosition(pos());
-
 	fader->fadeIn(noFade || alwaysShowLaunchy);
+
+	loadPosition(this, pos());
 
 #ifdef Q_WS_WIN
 	// need to use this method in Windows to ensure that keyboard focus is set when 

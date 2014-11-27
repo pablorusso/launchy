@@ -62,19 +62,43 @@
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="genAlwaysTop">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="text">
-                 <string>Always on top</string>
-                </property>
-               </widget>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QCheckBox" name="genAlwaysTop">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="text">
+                   <string>Always on top</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="genShowTrayIcon">
+                  <property name="text">
+                   <string>Show tray icon</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
               </item>
               <item>
-               <widget class="QCheckBox" name="genShowTrayIcon">
+               <widget class="QCheckBox" name="genOpenInLastPosition">
                 <property name="text">
-                 <string>Show tray icon</string>
+                 <string>Always open launchy in the last position</string>
                 </property>
                </widget>
               </item>
@@ -119,6 +143,8 @@
                 </item>
                </layout>
               </item>
+
+
               <item>
                <widget class="QCheckBox" name="genShiftDrag">
                 <property name="text">
@@ -1201,6 +1227,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>genHideFocus</tabstop>
   <tabstop>genAlwaysTop</tabstop>
   <tabstop>genShowTrayIcon</tabstop>
+  <tabstop>genOpenInLastPosition</tabstop>
   <tabstop>genHCenter</tabstop>
   <tabstop>genVCenter</tabstop>
   <tabstop>genShiftDrag</tabstop>

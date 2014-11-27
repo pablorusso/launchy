@@ -47,19 +47,23 @@ OptionsDialog::OptionsDialog(QWidget * parent) :
 		"<p><br>If you would like to uninstall Launchy, please close Launchy and run \"Uninstall Launchy\" from the start menu.</br></p>");
 #endif
 	// Load General Options
+	genAlwaysShow->setChecked(gSettings->value("GenOps/alwaysshow", false).toBool());
+	genHideFocus->setChecked(gSettings->value("GenOps/hideiflostfocus", false).toBool());
+	genAlwaysTop->setChecked(gSettings->value("GenOps/alwaystop", false).toBool());
 	if (QSystemTrayIcon::isSystemTrayAvailable())
 		genShowTrayIcon->setChecked(gSettings->value("GenOps/showtrayicon", true).toBool());
 	else
 		genShowTrayIcon->hide();
-	genAlwaysShow->setChecked(gSettings->value("GenOps/alwaysshow", false).toBool());
-	genAlwaysTop->setChecked(gSettings->value("GenOps/alwaystop", false).toBool());
-	genPortable->setChecked(settings.isPortable());
-	genHideFocus->setChecked(gSettings->value("GenOps/hideiflostfocus", false).toBool());
-	genDecorateText->setChecked(gSettings->value("GenOps/decoratetext", false).toBool());
+
 	int center = gSettings->value("GenOps/alwayscenter", 3).toInt();
 	genHCenter->setChecked((center & 1) != 0);
 	genVCenter->setChecked((center & 2) != 0);
 	genShiftDrag->setChecked(gSettings->value("GenOps/dragmode", 0) == 1);
+	
+	genOpenInLastPosition->setChecked(gSettings->value("GenOps/openinlastposition", false).toBool());
+
+	genPortable->setChecked(settings.isPortable());
+	genDecorateText->setChecked(gSettings->value("GenOps/decoratetext", false).toBool());
 	genShowHidden->setChecked(gSettings->value("GenOps/showHiddenFiles", false).toBool());
 	genShowNetwork->setChecked(gSettings->value("GenOps/showNetwork", true).toBool());
         genCondensed->setCurrentIndex(gSettings->value("GenOps/condensedView", 2).toInt());
@@ -285,6 +289,7 @@ void OptionsDialog::accept()
 	gSettings->setValue("GenOps/showtrayicon", genShowTrayIcon->isChecked());
 	gSettings->setValue("GenOps/alwaysshow", genAlwaysShow->isChecked());
 	gSettings->setValue("GenOps/alwaystop", genAlwaysTop->isChecked());
+	gSettings->setValue("GenOps/openinlastposition", genOpenInLastPosition->isChecked());	
 	gSettings->setValue("GenOps/decoratetext", genDecorateText->isChecked());
 	gSettings->setValue("GenOps/hideiflostfocus", genHideFocus->isChecked());
 	gSettings->setValue("GenOps/alwayscenter", (genHCenter->isChecked() ? 1 : 0) | (genVCenter->isChecked() ? 2 : 0));
