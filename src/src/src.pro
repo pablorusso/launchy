@@ -72,6 +72,9 @@ unix:!macx {
         CONFIG(debug, debug|release):DESTDIR = ../debug/
         CONFIG(release, debug|release):DESTDIR = ../release/
     }
+    
+    LIBS += -lX11
+
     SOURCES +=
     target.path = $$PREFIX/bin/
     skins.path = $$PREFIX/share/launchy/skins/
