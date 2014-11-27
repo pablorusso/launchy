@@ -790,6 +790,51 @@ void LaunchyWidget::doTab()
 
 		if (inputData.last().hasLabel(LABEL_FILE) || info.isDir())
 		{
+
+			// If multiple paths exist, select the longest intersection (like the bash shell)
+			if (!alternatives->isActiveWindow())
+			{ 
+				QStringList paths;
+				int minLength = -1;
+				foreach(const CatItem& item, searchResults) {
+					if (item.id == HASH_LAUNCHYFILE) {
+						QString p = item.fullPath;
+						paths += p;
+						if (minLength == -1 || p.length() < minLength)
+							minLength = p.length();
+						qDebug() << p;
+					}
+				}
+				qDebug() << "";
+
+				if (paths.size() > 1) {
+					// Find the longest prefix common to all of the paths
+					QChar curChar;
+					QString longestPrefix = "";
+					for(int i = 0; i < minLength; i++) {
+						curChar = paths[0][i];
+						bool stop = false;
+						foreach(QString path, paths) {
+#ifdef Q_WS_WIN
+							if (path[i].toLower() != curChar.toLower()) {
+#else
+							if (path[i] != curChar) {
+#endif
+								stop = true;
+								break;
+							}
+						}
+						if (stop) break;
+						longestPrefix += curChar;
+					}
+
+					input->selectAll();
+					input->insert(inputData.toString(true) + longestPrefix);
+					return;
+				}
+			}
+
+
 			QString path;
 			if (info.isSymLink())
 				path = info.symLinkTarget();
