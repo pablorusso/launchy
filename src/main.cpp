@@ -396,7 +396,10 @@ void LaunchyWidget::updateAlternatives(bool resetSelection)
 	if (alternativesRect.isNull())
 		alternativesRect = alternatives->geometry();
 	QRect rect = alternativesRect;
-	rect.setHeight(min * alternatives->sizeHintForRow(0));
+	int sizehint = alternatives->sizeHintForRow(0);
+	qDebug() << "Min: " << min << " SizeHint:" << sizehint << " Total:" << min * sizehint;
+
+	rect.setHeight(min * sizehint);
 	rect.translate(pos());
 
 	// Is there room for the dropdown box?
