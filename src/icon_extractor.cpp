@@ -118,7 +118,8 @@ void IconExtractor::run()
 		mutex.unlock();
 		if (itemsRemaining)
 		{
-			QIcon icon = getIcon(item);
+			QIcon icon;
+ 			QMetaObject::invokeMethod(this, "getIcon", Qt::BlockingQueuedConnection, Q_RETURN_ARG(QIcon, icon), Q_ARG(CatItem, item));
 			emit iconExtracted(item.id, item.fullPath, icon);
 		}
 	}

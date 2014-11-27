@@ -35,12 +35,14 @@ public:
 	void stop();
 	void run();
 
+public slots:
+	QIcon getIcon(const CatItem& item);
+
 signals:
     void iconExtracted(int itemIndex, QString path, QIcon icon);
 
 private:
-	QIcon getIcon(const CatItem& item);
-
+	
 	QMutex mutex;
 	QQueue<CatItem> items;
 };
