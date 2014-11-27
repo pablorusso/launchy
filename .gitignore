@@ -29,3 +29,8 @@
 
 Makefile
 Makefile.*
+**/plugins/**/ui_dlg.h
+**/plugins/**/moc_*.cpp
+release
+**/src/ui_options.h
+**/src/build
