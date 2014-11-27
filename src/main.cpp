@@ -171,12 +171,6 @@ LaunchyWidget::LaunchyWidget(CommandFlags command) :
 		command |= ShowLaunchy;
 	setAlwaysTop(gSettings->value("GenOps/alwaystop", false).toBool());
 
-	// Check for udpates?
-	if (gSettings->value("GenOps/updatecheck", true).toBool())
-	{
-		checkForUpdate();
-	}
-
 	// Set the hotkey
 	QKeySequence hotkey = getHotkey();
 	if (!setHotkey(hotkey))
@@ -1064,48 +1058,6 @@ void LaunchyWidget::catalogBuilt()
 	searchOnInput();
 	updateOutputWidgets();
 }
-
-
-void LaunchyWidget::checkForUpdate()
-{
-	http = new QHttp(this);
-	verBuffer = new QBuffer(this);
-	counterBuffer = new QBuffer(this);
-	verBuffer->open(QIODevice::ReadWrite);
-	counterBuffer->open(QIODevice::ReadWrite);
-
-	connect(http, SIGNAL(done( bool)), this, SLOT(httpGetFinished(bool)));
-	http->setHost("www.launchy.net");
-	http->get("http://www.launchy.net/version2.html", verBuffer);
-}
-
-
-void LaunchyWidget::httpGetFinished(bool error)
-{
-	if (!error)
-	{
-		QString str(verBuffer->data());
-		int ver = str.toInt();
-		if (ver > LAUNCHY_VERSION)
-		{
-			QMessageBox box;
-			box.setIcon(QMessageBox::Information);
-			box.setTextFormat(Qt::RichText);
-			box.setWindowTitle(tr("A new version of Launchy is available"));
-			box.setText(tr("A new version of Launchy is available.\n\nYou can download it at \
-						   <qt><a href=\"http://www.launchy.net/\">http://www.launchy.net</a></qt>"));
-			box.exec();
-		}
-		if (http != NULL)
-			delete http;
-		http = NULL;
-	}
-	verBuffer->close();
-	counterBuffer->close();
-	delete verBuffer;
-	delete counterBuffer;
-}
-
 
 void LaunchyWidget::setSkin(const QString& name)
 {

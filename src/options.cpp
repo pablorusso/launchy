@@ -60,7 +60,6 @@ OptionsDialog::OptionsDialog(QWidget * parent) :
 	genHCenter->setChecked((center & 1) != 0);
 	genVCenter->setChecked((center & 2) != 0);
 	genShiftDrag->setChecked(gSettings->value("GenOps/dragmode", 0) == 1);
-	genUpdateCheck->setChecked(gSettings->value("GenOps/updatecheck", true).toBool());
 	genShowHidden->setChecked(gSettings->value("GenOps/showHiddenFiles", false).toBool());
 	genShowNetwork->setChecked(gSettings->value("GenOps/showNetwork", true).toBool());
         genCondensed->setCurrentIndex(gSettings->value("GenOps/condensedView", 2).toInt());
@@ -286,7 +285,6 @@ void OptionsDialog::accept()
 	gSettings->setValue("GenOps/showtrayicon", genShowTrayIcon->isChecked());
 	gSettings->setValue("GenOps/alwaysshow", genAlwaysShow->isChecked());
 	gSettings->setValue("GenOps/alwaystop", genAlwaysTop->isChecked());
-	gSettings->setValue("GenOps/updatecheck", genUpdateCheck->isChecked());
 	gSettings->setValue("GenOps/decoratetext", genDecorateText->isChecked());
 	gSettings->setValue("GenOps/hideiflostfocus", genHideFocus->isChecked());
 	gSettings->setValue("GenOps/alwayscenter", (genHCenter->isChecked() ? 1 : 0) | (genVCenter->isChecked() ? 2 : 0));

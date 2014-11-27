@@ -570,13 +570,6 @@
              </widget>
             </item>
             <item>
-             <widget class="QCheckBox" name="genUpdateCheck">
-              <property name="text">
-               <string>Check for new versions of Launchy on startup</string>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QCheckBox" name="genPortable">
               <property name="text">
                <string>Portable mode (USB stick)</string>
@@ -1225,7 +1218,6 @@ p, li { white-space: pre-wrap; }
   <tabstop>genUpdateMinutes</tabstop>
   <tabstop>genShowHidden</tabstop>
   <tabstop>genShowNetwork</tabstop>
-  <tabstop>genUpdateCheck</tabstop>
   <tabstop>genPortable</tabstop>
   <tabstop>genProxyHostname</tabstop>
   <tabstop>genProxyPort</tabstop>

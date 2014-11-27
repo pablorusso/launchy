@@ -91,7 +91,6 @@ public slots:
 	void onHotkey();
 	void dropTimeout();
 	void setOpaqueness(int level);
-	void httpGetFinished(bool result);
 	void catalogProgressUpdated(int);
 	void catalogBuilt();
 	void buildCatalog();
@@ -115,7 +114,6 @@ private:
 	void closeEvent(QCloseEvent* event);
 	void hideLaunchy(bool noFade = false);
 	void updateVersion(int oldVersion);
-	void checkForUpdate();
 	void shouldDonate();
 	void updateAlternatives(bool resetSelection = true);
 	void showAlternatives();
