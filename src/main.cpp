@@ -857,8 +857,8 @@ void LaunchyWidget::doEnter()
 	{
 		CatItem& item = inputData[0].getTopResult();
 		qDebug() << "Launching" << item.shortName << ":" << item.fullPath;
-		launchItem(item);
 		hideLaunchy();
+		launchItem(item);		
 	}
 	else
 	{
