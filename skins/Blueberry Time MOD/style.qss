@@ -1,0 +1,80 @@
+#launchy {
+}
+#workingAnimation {
+	qproperty-geometry: rect(402 25 16 16);
+}
+#input {
+	font: 12px "Myriad Pro";
+	font-weight: normal;
+	border-width: 0px;
+	background-color: rgba(0,244,120,0%);
+	border-style: solid;
+	selection-background-color: rgba(255,255,255,10%);
+	color: #dddddd;
+	qproperty-alignment: AlignRight;
+	qproperty-geometry: rect(61 24 240 24);
+}
+
+#output {
+	font: 10px "Myriad Pro";
+	font-weight: bold;
+	background-color: rgba(0,244,120,0%);
+	border-style: solid;
+	color: rgba(255,255,255,50%);
+	qproperty-alignment: AlignLeft;
+	qproperty-geometry: rect(64 30 237 24);
+}
+
+#outputIcon {
+	qproperty-geometry: rect(24 28 16 16);
+}
+
+#alternatives {
+	font: 10 px "Myriad Pro";
+	font-weight: normal;
+	text-transform: capitalize;
+	background-color: #343434;
+	alternate-background-color:#4d4d4d;
+	selection-background-color: rgba(0,244,120,0%);
+	color: rgba(255,255,255,50%);
+	selection-color: #ffffff;
+	border-style: solid;
+	border-color: #4d4d4d;
+	border-width: 1px;
+	qproperty-geometry: rect(58 54 245 120);
+	padding: 0px 0px 0px 0px;
+}
+
+#alternativesPath {
+	font: 12px;
+	font-weight: normal;
+	color: #999999;
+	selection-color: #999999;
+}
+
+/* Scrollbar */
+
+QScrollBar {
+	background: #4d4d4d;
+}
+
+QScrollBar#altScroll:vertical {
+	background: #4d4d4d;
+	width: 8px;
+	margin: 1 1 1 1;
+	padding: 0;
+}
+QScrollBar#altScroll::handle:vertical {
+	background-color: #343434;
+	margin: 1 1 1 1;
+}
+
+QScrollBar#altScroll::add-page:vertical, QScrollBar#altScroll::sub-page:vertical {
+	background: rgba(0,0,0,0%);
+}
+QScrollBar#altScroll::sub-line:vertical, QScrollBar#altScroll::add-line:vertical {
+	width: 16px;
+	height: 2px;
+	subcontrol-origin: margin; 
+	background: rgba(0,0,0,0%);
+}

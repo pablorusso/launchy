@@ -1,0 +1,31 @@
+============
+yboris Blueberry
+============
+by: Boris Yakubchik
+
+	Is just a fusion of two themes:
+
+----------------------------------------
+Minimalist Dark (Version 2)
+----------------------------------------
+By Rowan Griffin » 
+Latest Revision: 14/9/2010 
+
+	and
+
+-----------------------
+Blueberry Time!
+-----------------------
+Skin for Launchy 2.5+ by Blekwave
+http://blekwave.deviantart.com
+
+Based on mangosango's SSC12 winning Space Blueberry
+Useful links:
+• Latest iteration of the VS by neiio: http://neiio.deviantart.com/art/Space-Blueberries-4-8-338438411
+• Litestep theme by mangosango: http://mangosango.deviantart.com/art/Spaceberries-for-Everyone-359950034
+
+----------------------------
+HOW TO INSTALL:
+----------------------------
+1. Copy the "Blueberry Time" folder to C:\Program Files (x86)\Launchy\skins or wherever you installed Launchy.
+2. Change the theme via Launchy settings

@@ -1,0 +1,67 @@
+#launchy {
+}
+
+#opsButton {
+	background: url(option.png);
+	border: none;
+	qproperty-geometry: rect(606 20 10 11);
+}
+
+#opsButton:pressed {
+	background-image: url(option_pressed.png);
+	border: none;
+}
+
+#workingAnimation {
+	qproperty-geometry: rect(707 40 16 16);
+}
+
+#input {
+	background-color: rgba(23,23,23,0%);
+	border-style: solid;
+	border-width: 0px;
+	color: #BFC3CC;
+	font: 28px "Arial";
+	qproperty-alignment: AlignLeft;
+	qproperty-geometry: rect(41 38 558 36);
+}
+
+#output {
+	background-color: rgba(54,79,46,0%);
+	border-color: #282832;
+	border-style: solid;
+	border-width: 0px;
+	color: #C3D2E1;
+	font: 21px "Arial";
+	qproperty-alignment: AlignLeft;
+	qproperty-geometry: rect(85 109 521 32);
+}
+
+#outputIcon {
+	qproperty-geometry: rect(41 105 32 32);
+}
+
+#alternatives {
+	border: none;
+	background-color: rgb(55,55,65);
+	color: #C3D2E1;
+	font: 21px "Arial";
+	alternate-background-color: rgb(55,55,65);
+	selection-background-color: rgba(54,79,46);
+	selection-color: white;
+	qproperty-geometry: rect(31 146 580 120);
+}
+
+#alternatives::item {
+	border-bottom-color: #282832;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	padding: 7px 10px 6px 30px;
+}
+
+#alternativesPath {
+	color: rgb(119,164,208);
+	font: 10px "Arial";
+	padding: 10px;
+	selected-color: rgb(117,185,32);
+}

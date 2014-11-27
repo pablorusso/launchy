@@ -1,0 +1,98 @@
+#launchy {
+}
+
+#opsButton {
+	border: none;
+	background: url(opsButton.png);
+	qproperty-geometry: rect(186, 12, 12, 12);
+}
+
+#opsButton:pressed {
+	border: none;
+	background-image: url(opsButtonPressed.png);
+}
+
+#workingAnimation {
+	qproperty-geometry: rect(186, 12, 12, 12);
+}
+
+#input {
+	font: 14px "Leelawad";
+	border-width: 0px;
+	background-color: rgba(23,244,120,0%);
+	border-style: solid;
+	color: #232221;
+	qproperty-alignment: AlignLeft;
+	qproperty-geometry: rect(40 12 130 12);
+}
+
+#output {
+	font: 12px "Leelawad";
+	border-width: 0px;
+	background-color: rgba(299,228,228,0%);
+	border-style: solid;
+	color: #232221;
+	qproperty-alignment: AlignLeft;
+	qproperty-geometry: rect(40 234 200 18);
+}
+
+#outputIcon {
+	qproperty-geometry: rect(218 225 15 15);
+}
+
+#alternatives {
+	color: #64615e;
+	font: 11px "Leelawad";
+	alternate-background-color: #f0efef;
+	background: #f0efef;
+	selection-background-color: #d7c5cc;
+	selection-color: #232221;
+	border-style: solid;
+	border-width: 0px 0px 0px 0px;
+	border-color: #464646;
+	qproperty-geometry: rect(7 42 198 48);
+}
+
+#alternatives::item {
+	padding: 2px 0px 2px 0px;
+}
+
+#alternativesPath {
+	font: 11px "Leelawad";
+	color: #d7c5cc;
+	selection-color: #9f7484;
+}
+
+QScrollBar#altScroll:vertical {
+	image: url(scrollBack.png);
+	width: 0px;
+	margin: 16px 0px 16px 0px;
+}
+
+QScrollBar#altScroll::handle:vertical {
+	background: qlineargradient(x1:0, y1:0.5, x2:1, y2:0.5, stop:0 white, stop:0.1 rgb(85,85,85), stop:0.7 rgb(40,40,40), stop:0.9 rgb(60,60,60), stop:1 white);
+}
+
+QScrollBar#altScroll::sub-line:vertical {
+	width: 16px;
+	height: 16px;
+	subcontrol-position: top;
+	subcontrol-origin: margin; 
+	image: url(scrollUp.png);
+}
+
+QScrollBar#altScroll::add-page:vertical {
+	background: url(scrollBack.png);
+}
+
+QScrollBar#altScroll::sub-page:vertical {
+	background: url(scrollBack.png);
+}
+
+QScrollBar#altScroll::add-line:vertical {
+	width: 16px;
+	height: 16px; 
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	image: url(scrollDown.png);
+}

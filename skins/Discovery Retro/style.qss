@@ -1,0 +1,53 @@
+#launchy {
+}
+#workingAnimation {
+	qproperty-geometry: rect(402 25 16 16);
+}
+#input {
+	font: 12px "Segoe UI", "Arial";
+	font-weight: normal;
+	border-width: 0px;
+	background-color: rgba(0,244,120,0%);
+	border-style: solid;
+	selection-background-color: rgba(195,155,10,100%);
+	color: #454545;
+	qproperty-alignment: AlignLeft;
+	qproperty-geometry: rect(72 20 223 27);
+}
+
+#output {
+	font: 12px "Segoe UI", "Arial";
+	font-weight: normal;
+	background-color: rgba(255,255,255,0%);
+	border-style: solid;
+	color: rgba(69,69,69,0%);
+	qproperty-alignment: AlignCenter;
+	qproperty-geometry: rect(72 20 223 27);
+}
+
+#outputIcon {
+	qproperty-geometry: rect(20 17 32 32);
+}
+
+#alternatives {
+	font: 12px "Segoe UI", "Arial";
+	font-weight: bold;
+	text-transform: capitalize;
+	background-color: #FFFFFF;
+	alternate-background-color:#F2F2F2;
+	selection-background-color: rgba(195,155,10,100%);
+	color: #676767;
+	selection-color: #FFFFFF;
+	border-style: solid;
+	border-color: rgba(0,0,0,20%);
+	border-width: 1px;
+	qproperty-geometry: rect(13 58 297 120);
+	padding: 4px 4px 4px 4px;
+}
+
+#alternativesPath {
+	font: 12px "Segoe UI";
+	font-weight: normal;
+	color: #999999;
+	selection-color: #F2F2F2c;
+}

@@ -1,0 +1,74 @@
+#launchy {
+}
+
+#workingAnimation {
+	qproperty-geometry: rect(402 25 16 16);
+}
+
+#input {
+	font: 14px Segoe UI;
+	border-width: 0px;
+	background-color: rgba(0,244,120,0%);
+	border-style: solid;
+	color: white;
+	qproperty-alignment: AlignLeft;
+	qproperty-geometry: rect(40 22 160 24);
+}
+
+#output {
+	font: 14px Segoe UI;
+	border-width: 0px;
+	background-color: rgba(0,244,120,0%);
+	border-style: solid;
+	color: white;
+	qproperty-alignment: AlignRight;
+	qproperty-geometry: rect(245 25 160 24);
+}
+
+#outputIcon {
+	qproperty-geometry: rect(0 0 0 0);
+}
+
+#alternatives {
+	font: 12px Segoe UI;
+	background-color: black;
+	alternate-background-color: black;
+	color: white;
+	border: none;
+	qproperty-geometry: rect(13 64 416 100);
+}
+
+#alternatives::item {
+	padding: 2px 0px 2px 0px;
+}
+
+#alternativesPath {
+	font: 12px Segoe UI;
+	color: rgb(221,221,221);
+}
+
+QScrollBar#altScroll:vertical {
+	background-color: black;
+	width: 16px; 
+	margin: 0px 0px 0px 0px;
+}
+
+QScrollBar#altScroll::handle:vertical {
+	background-color: #333333;
+}
+
+QScrollBar#altScroll::sub-line:vertical {
+	background-color: black;
+}
+
+QScrollBar#altScroll::add-page:vertical {
+	background-color: black;
+}
+
+QScrollBar#altScroll::sub-page:vertical {
+	background-color: black;
+}
+
+QScrollBar#altScroll::add-line:vertical {
+	background-color: black;
+}

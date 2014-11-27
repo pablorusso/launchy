@@ -1,0 +1,7 @@
+Skin Title: Mercury_2
+
+Author: http://bekii.in
+
+Version: 1.1
+
+Date: 2013-3-31

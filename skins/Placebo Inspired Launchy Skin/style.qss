@@ -1,0 +1,79 @@
+#launchy {
+}
+
+#workingAnimation {
+	qproperty-geometry: rect(474 54 16 16);
+}
+
+#input {
+	font:  16px "Tahoma";
+	border-width: 0px;
+	background-color: rgba(0,244,120,0%);
+	border-style: solid;
+	color: white;
+	qproperty-alignment: AlignLeft;
+	qproperty-geometry: rect(41 34 418 24)
+}
+
+#output {
+	font:  14px "Tahoma";
+	border-width: 0px;
+	background-color: rgba(150,150,150,0%);
+	border-style: solid;
+	color: white;
+	qproperty-alignment: AlignLeft;
+	qproperty-geometry: rect(43 70 418 24);
+}
+
+#outputIcon {
+	qproperty-geometry: rect(460 39 46 46);
+}
+
+#alternatives {
+	font:  12px "Tahoma";
+	background-color: rgb(40,40,40);
+        alternate-background-color: rgb(40,40,40 );	
+	color: rgb(255,255,255);
+	border-style: solid;
+	border-width: 0px;
+	qproperty-geometry: rect(8 110 525 100);
+}
+
+#alternativesPath {
+	font: 11px Sans, Verdana;
+	color: rgb(255,255,255);
+}
+
+QScrollBar#altScroll:vertical {
+	image: url(Scr.png);
+	width: 16px;
+	margin: 16px 0px 16px 0px;
+}
+
+QScrollBar#altScroll::handle:vertical {
+	background-color: rgb(50,50,50);
+}
+
+QScrollBar#altScroll::sub-line:vertical {
+	width: 16px;
+	height: 16px;
+	subcontrol-position: top;
+	subcontrol-origin: margin; 
+	image: url(ScrU.png);
+}
+
+QScrollBar#altScroll::add-page:vertical {
+	background: url(Scr.png);
+}
+
+QScrollBar#altScroll::sub-page:vertical {
+	background: url(Scr.png);
+}
+
+QScrollBar#altScroll::add-line:vertical {
+	width: 16px;
+	height: 16px; 
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	image: url(ScrD.png);
+}
