@@ -506,7 +506,7 @@ void LaunchyWidget::focusInEvent(QFocusEvent* event)
 
 void LaunchyWidget::focusOutEvent(QFocusEvent* event)
 {
-        if (event->reason() == Qt::ActiveWindowFocusReason)
+	if (event->reason() == Qt::ActiveWindowFocusReason)
 	{
 		if (gSettings->value("GenOps/hideiflostfocus", false).toBool() &&
                         !isActiveWindow() && !alternatives->isActiveWindow() && !optionsOpen && !fader->isFading())
@@ -582,13 +582,7 @@ void LaunchyWidget::inputKeyPressEvent(QKeyEvent* event)
 
 void LaunchyWidget::alternativesKeyPressEvent(QKeyEvent* event)
 {
-	if (event->key() == Qt::Key_Escape)
-	{
-		hideAlternatives();
-		input->setFocus();
-		event->ignore();
-	}
-	else if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter || event->key() == Qt::Key_Tab)
+	if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter || event->key() == Qt::Key_Tab)
 	{
 		if (searchResults.count() > 0)
 		{
@@ -661,7 +655,7 @@ void LaunchyWidget::alternativesKeyPressEvent(QKeyEvent* event)
 
 
 void LaunchyWidget::keyPressEvent(QKeyEvent* event)
-{
+{	
 	if (event->key() == Qt::Key_Escape)
 	{
 		if (alternatives->isVisible())
@@ -1150,7 +1144,6 @@ void LaunchyWidget::onHotkey()
 {
 	if (menuOpen || optionsOpen)
 	{
-		showLaunchy(true);
 		return;
 	}
 	if (!alwaysShowLaunchy && isVisible() && !fader->isFading() && QApplication::activeWindow() !=0)
@@ -1481,7 +1474,8 @@ void LaunchyWidget::showOptionsDialog()
 {
 	if (!optionsOpen)
 	{
-		hideAlternatives();
+		hideLaunchy();
+		
 		optionsOpen = true;
 		OptionsDialog options(this);
 		options.setObjectName("options");
@@ -1492,10 +1486,9 @@ void LaunchyWidget::showOptionsDialog()
 #endif
 		loadPosition(&options, pos());
 		options.exec();
-
-		input->activateWindow();
-		input->setFocus();
 		optionsOpen = false;
+
+		showLaunchy();
 	}
 }
 
@@ -1559,8 +1552,8 @@ void LaunchyWidget::showLaunchy()
 
 void LaunchyWidget::hideLaunchy(bool noFade)
 {
-        if (!isVisible() || isHidden())
-                return;
+  if (!isVisible() || isHidden() || optionsOpen)
+		return;
 
 	savePosition();
 	hideAlternatives();
